@@ -1,0 +1,11 @@
+#!/bin/sh
+while true
+do
+i=$(cat /sys/class/power_supply/BAT0/capacity)
+new_i=$(($i+1))
+if (( $i < 20 )); then
+ notify-send -u critical "THE BATTERY IS ALMOST EMPTY" "get charging"
+fi
+
+sleep 60;
+done
